@@ -35,7 +35,7 @@ import java.nio.charset.Charset;
  * @author <a href="mailto:cleclerc@xebia.fr">Cyrille Le Clerc</a>
  */
 public abstract class AbstractLogglyAppender<E> extends UnsynchronizedAppenderBase<E> {
-    public static final String DEFAULT_ENDPOINT_PREFIX = "https://logs.loggly.com/inputs/";
+    public static final String DEFAULT_ENDPOINT_PREFIX = "https://logs-01.loggly.com/inputs/";
     public static final String DEFAULT_LAYOUT_PATTERN = "%d{\"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\",UTC} %-5level [%thread] %logger: %m%n";
     protected static final Charset UTF_8 = Charset.forName("UTF-8");
     protected String endpointUrl;
@@ -131,7 +131,11 @@ public abstract class AbstractLogglyAppender<E> extends UnsynchronizedAppenderBa
     }
 
     protected String buildEndpointUrl(String inputKey) {
-        return new StringBuilder(DEFAULT_ENDPOINT_PREFIX).append(inputKey).toString();
+        if (getTag() == null) {
+            return new StringBuilder(DEFAULT_ENDPOINT_PREFIX).append(inputKey).toString();
+        } else {
+            return new StringBuilder(DEFAULT_ENDPOINT_PREFIX).append(inputKey).append("/tag/").append(getTag()).toString();
+        }
     }
 
     public String getEndpointUrl() {
@@ -155,6 +159,10 @@ public abstract class AbstractLogglyAppender<E> extends UnsynchronizedAppenderBa
             cleaned = null;
         }
         this.inputKey = cleaned;
+    }
+
+    public String getTag() {
+        return System.getenv("PUBLIC_HOSTNAME");
     }
 
     public String getPattern() {

@@ -26,7 +26,7 @@
     <groupId>org.logback-extensions</groupId>
     <artifactId>logback-ext-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.2-SNAPSHOT</version>
+    <version>0.1.2-PENCIL</version>
 
     <name>Logback Extensions</name>
     <url>https://github.com/qos-ch/logback-extensions/wiki</url>
@@ -315,20 +315,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.2.2</version>
                 <configuration>
@@ -390,24 +376,6 @@
                     <value>true</value>
                 </property>
             </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 

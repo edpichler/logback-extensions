@@ -26,7 +26,7 @@
     <groupId>org.logback-extensions</groupId>
     <artifactId>logback-ext-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.2-PENCIL</version>
+    <version>0.1.3-PICHLER</version>
 
     <name>Logback Extensions</name>
     <url>https://github.com/qos-ch/logback-extensions/wiki</url>
@@ -92,9 +92,9 @@
         <mongo-java-driver.version>2.7.3</mongo-java-driver.version>
 
         <!-- Test Dependencies: -->
-        <easymock.version>3.1</easymock.version>
+        <easymock.version>3.2</easymock.version>
         <groovy.version>1.8.6</groovy.version>
-        <jmockit.version>0.999.15</jmockit.version>
+        <jmockit.version>1.6</jmockit.version>
         <junit.version>4.8.2</junit.version>
 
     </properties>
